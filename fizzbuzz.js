@@ -1,18 +1,34 @@
-// This program will run the Fizzbuzz game
+const counter = x => {
+  let output = [];
+  for (let i = 1; i <= x; i += 1) {
+    output.push(i);
+  }
+  return output;
+};
 
-for (var i =1; i <= 100; i++) {
+const fizz = x => x %  3 === 0 ? "Fizz"     : x;
+const buzz = x => x %  5 === 0 ? "Buzz"     : x;
+const fibu = x => x % 15 === 0 ? "FizzBuzz" : x;
 
-	if (i % 3 == 0 && i % 5 == 0) {
-		console.log('Fizzbuzz')
+const play = x => {
+  let numbers = counter(x);
+  numbers.map(y => buzz(fizz(fibu(y))));
+  return numbers;
+};
 
-	} else if (i % 5 == 0) {
-		console.log('Buzz');
+// const play = x => {
+//   let output = [];
+//   let numbers = counter(x);
+//   for ( let i = 0; i < numbers.length; i += 1 ) {
+//     output.push(buzz(fizz(fibu(numbers[i]))));
+//   }
+//   return output;
+// };
 
-	} else if (i % 3 == 0) {
-		console.log('Fizz');
-
-	} else {
-		console.log(i);
-	}
-	
-}
+module.exports = {
+  counter,
+  fizz,
+  buzz,
+  fibu,
+  play
+};
